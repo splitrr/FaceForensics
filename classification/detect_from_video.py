@@ -23,7 +23,6 @@ from tqdm import tqdm
 from network.models import model_selection
 from dataset.transform import xception_default_data_transforms
 
-
 def get_boundingbox(face, width, height, scale=1.3, minsize=None):
     """
     Expects a dlib face to generate a quadratic bounding box.
@@ -120,7 +119,7 @@ def test_full_image_network(video_path, model_path, output_path,
 
     # Read and write
     reader = cv2.VideoCapture(video_path)
-
+    
     video_fn = video_path.split('/')[-1].split('.')[0]+'.avi'
     os.makedirs(output_path, exist_ok=True)
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
@@ -226,7 +225,7 @@ if __name__ == '__main__':
                    default='.')
     p.add_argument('--start_frame', type=int, default=0)
     p.add_argument('--end_frame', type=int, default=None)
-    p.add_argument('--cuda', action='store_true')
+    p.add_argument('--', action='store_true')
     args = p.parse_args()
 
     video_path = args.video_path
